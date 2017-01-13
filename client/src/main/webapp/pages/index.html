@@ -7,22 +7,24 @@
     </head>
     <body>
         
-<h2>Úvodní obrazovka</h2>
+        <div data-bind="visible: welcomeScreen">
     <center>
         <h1>Investiční Hra</h1>
         <div>Název Firmy:<input/></div>
         <button>Start</button>
     </center>
-
-<h2>2. obrazovka</h2>
+        </div>
+       
+        <div data-bind="visible: continueScreen">
     <center>
-        <h1>Máte <span data-bind="text: money">5 000 000</span> Kč</h1>
+        <h1>Máte <span data-bind="text: money"></span> Kč</h1>
          <div>První Kolo</div>
         <button>Investovat</button>
         <button>Ukončit hru</button>
     </center>
-    
-<h2>3. obrazovka</h2>
+        </div>
+        
+        <div data-bind="visible: investmentScreen">
     <center>
         <h2>Nemocnice na Bulovce  </h2>
         <h2>Investice:1 000 000 Kč</h2>
@@ -30,6 +32,8 @@
         <h2>B:10/5                </h2>  <button>B:Investovat</button>
         <h2>Máte 20 sekund</h2>
     </center>
+       </div>
+        
         
 <!-- ${browser.bootstrap} -->
     </body>

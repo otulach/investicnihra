@@ -7,7 +7,10 @@ import net.java.html.json.Property;
 import cz.xelfi.demo.investicnihra.js.Dialogs;
 
 @Model(className = "Data", targetId="", properties = {
-    @Property(name = "money", type = int.class)
+    @Property(name = "money", type = int.class),
+    @Property(name = "welcomeScreen", type = boolean.class),
+    @Property(name = "continueScreen", type = boolean.class),
+    @Property(name = "investmentScreen", type = boolean.class),
 })
 final class DataModel {
     private static Data ui;
@@ -17,6 +20,7 @@ final class DataModel {
     static void onPageLoad() throws Exception {
         ui = new Data();
         ui.setMoney(5_000_000);
+        ui.setWelcomeScreen(true);
         ui.applyBindings();
     }
 }
