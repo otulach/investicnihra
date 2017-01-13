@@ -7,6 +7,7 @@ import net.java.html.json.Property;
 import cz.xelfi.demo.investicnihra.js.Dialogs;
 
 @Model(className = "Data", targetId="", properties = {
+    @Property(name = "money", type = int.class)
 })
 final class DataModel {
     private static Data ui;
@@ -15,6 +16,7 @@ final class DataModel {
      */
     static void onPageLoad() throws Exception {
         ui = new Data();
+        ui.setMoney(5_000_000);
         ui.applyBindings();
     }
 }
