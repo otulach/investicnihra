@@ -14,12 +14,18 @@ import cz.xelfi.demo.investicnihra.js.Dialogs;
 })
 final class DataModel {
     private static Data ui;
+    
+    @Function
+    static void start(Data model) {
+        ui.setMoney(5_000_000);
+        ui.setContinueScreen(true);
+        ui.setWelcomeScreen(false);
+    }
     /**
      * Called when the page is ready.
      */
     static void onPageLoad() throws Exception {
         ui = new Data();
-        ui.setMoney(5_000_000);
         ui.setWelcomeScreen(true);
         ui.applyBindings();
     }
