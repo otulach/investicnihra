@@ -12,6 +12,7 @@ import cz.xelfi.demo.investicnihra.js.Dialogs;
     @Property(name = "continueScreen", type = boolean.class),
     @Property(name = "investmentScreen", type = boolean.class),
     @Property(name = "company", type = String.class),
+    @Property(name = "round", type = int.class),
 })
 final class DataModel {
     private static Data ui;
@@ -26,6 +27,12 @@ final class DataModel {
         ui.setMoney(5_000_000);
         ui.setContinueScreen(true);
         ui.setWelcomeScreen(false);
+        ui.setRound(1);
+    }
+    
+    @Function
+    static void invest(Data model) {
+        ui.setRound(ui.getRound() + 1);
     }
     /**
      * Called when the page is ready.

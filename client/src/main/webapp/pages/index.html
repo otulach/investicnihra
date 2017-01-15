@@ -18,8 +18,8 @@
         <div data-bind="visible: continueScreen">
     <center>
         <h1>Máte <span data-bind="text: money"></span> Kč</h1>
-         <div>První Kolo</div>
-        <button>Investovat</button>
+        <div><span data-bind="text:round"></span>. kolo</div>
+        <button data-bind="click: invest">Investovat</button>
         <button>Ukončit hru</button>
     </center>
         </div>
