@@ -11,9 +11,15 @@ import cz.xelfi.demo.investicnihra.js.Dialogs;
     @Property(name = "welcomeScreen", type = boolean.class),
     @Property(name = "continueScreen", type = boolean.class),
     @Property(name = "investmentScreen", type = boolean.class),
+    @Property(name = "company", type = String.class),
 })
 final class DataModel {
     private static Data ui;
+    
+    @ComputedProperty
+    static boolean companyOK(String company) {
+        return company != null && company.length() >= 4;
+    }
     
     @Function
     static void start(Data model) {
