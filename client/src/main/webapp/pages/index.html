@@ -31,11 +31,11 @@
                 <h2> Investice: <span data-bind="text: invest"></span> Kč</h2>
                 <div> 
                     <span data-bind="text: gain"></span> Kč
-                    <button>Investovat</button>
+                    <button data-bind="click: $root.chooseGain">Investovat</button>
                 </div>
                 <div>
                     <span data-bind="text: mul"></span>/<span data-bind="text: div"></span>
-                    <button>Investovat</button>
+                    <button data-bind="click: $root.chooseMulDiv">Investovat</button>
                 </div>
                
             </center>

@@ -35,7 +35,7 @@ final class DataModel {
     }
     
     @Function
-    static void start(Data model) {
+    static void start(Data ui) {
         ui.setMoney(5_000_000);
         ui.setContinueScreen(true);
         ui.setWelcomeScreen(false);
@@ -49,11 +49,30 @@ final class DataModel {
     }
     
     @Function
-    static void invest(Data model) {
+    static void invest(Data ui) {
         ui.setRound(ui.getRound() + 1);
         ui.setInvestmentScreen(true);
         ui.setContinueScreen(false);
     }
+    
+    @Function
+    static void chooseGain(Data ui, Example data) {
+        int delta = data.getGain() - data.getInvest(); 
+        ui.setMoney(ui.getMoney() + delta);
+        ui.setInvestmentScreen(false);
+        ui.setContinueScreen(true);
+    }
+    
+    @Function
+    static void chooseMulDiv(Data ui, Example data) {
+        int gain = data.getInvest() / data.getDiv() * data.getMul();
+        int delta = gain - data.getInvest(); 
+        ui.setMoney(ui.getMoney() + delta);        
+        ui.setInvestmentScreen(false);
+        ui.setContinueScreen(true);
+        
+    }
+    
     /**
      * Called when the page is ready.
      */
