@@ -25,13 +25,20 @@
         </div>
         
         <div data-bind="visible: investmentScreen">
-    <center>
-        <h2>Nemocnice na Bulovce  </h2>
-        <h2>Investice:1 000 000 Kč</h2>
-        <h2>A:1 500 000           </h2>  <button>A:Investovat</button>
-        <h2>B:10/5                </h2>  <button>B:Investovat</button>
-        <h2>Máte 20 sekund</h2>
-    </center>
+           <h2>Máte 20 sekund</h2>
+            <center data-bind="with: current">
+                <h2> <span data-bind="text: title"></span></h2>
+                <h2> Investice: <span data-bind="text: invest"></span> Kč</h2>
+                <div> 
+                    <span data-bind="text: gain"></span> Kč
+                    <button>Investovat</button>
+                </div>
+                <div>
+                    <span data-bind="text: mul"></span>/<span data-bind="text: div"></span>
+                    <button>Investovat</button>
+                </div>
+               
+            </center>
        </div>
         
         

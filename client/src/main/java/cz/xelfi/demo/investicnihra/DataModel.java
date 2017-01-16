@@ -13,9 +13,21 @@ import cz.xelfi.demo.investicnihra.js.Dialogs;
     @Property(name = "investmentScreen", type = boolean.class),
     @Property(name = "company", type = String.class),
     @Property(name = "round", type = int.class),
+    @Property(name = "current", type = Example.class),
 })
 final class DataModel {
     private static Data ui;
+
+    @Model(className = "Example", properties = {
+        @Property(name = "title", type = String.class),
+        @Property(name = "invest", type = int.class),
+        @Property(name = "gain", type = int.class),
+        @Property(name = "mul", type = int.class),
+        @Property(name = "div", type = int.class),
+        
+    })
+    static class ExampleModel {
+    }
     
     @ComputedProperty
     static boolean companyOK(String company) {
@@ -28,11 +40,19 @@ final class DataModel {
         ui.setContinueScreen(true);
         ui.setWelcomeScreen(false);
         ui.setRound(1);
+        
+        ui.getCurrent().setTitle("Nemocnice na Bulovce");
+        ui.getCurrent().setInvest(1000000);
+        ui.getCurrent().setGain(1500000);
+        ui.getCurrent().setMul(10);
+        ui.getCurrent().setDiv(5);
     }
     
     @Function
     static void invest(Data model) {
         ui.setRound(ui.getRound() + 1);
+        ui.setInvestmentScreen(true);
+        ui.setContinueScreen(false);
     }
     /**
      * Called when the page is ready.
