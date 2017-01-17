@@ -15,6 +15,7 @@ import net.java.html.json.OnReceive;
     @Property(name = "welcomeScreen", type = boolean.class),
     @Property(name = "continueScreen", type = boolean.class),
     @Property(name = "investmentScreen", type = boolean.class),
+    @Property(name = "finalScreen", type = boolean.class),
     @Property(name = "company", type = String.class),
     @Property(name = "round", type = int.class),
     @Property(name = "examples", type = Example.class, array = true),
@@ -41,6 +42,14 @@ final class DataModel {
         return company != null && company.length() >= 4;
     }
     
+    @ComputedProperty
+    static int average(int money, int round) {
+        if (round == 0)  {
+             return 0;   
+        }
+        return  (money - 5000000) / round;
+    }
+    
     @Function
     static void start(Data ui) {
         ui.setMoney(5_000_000);
@@ -48,6 +57,8 @@ final class DataModel {
         ui.setWelcomeScreen(false);
         Collections.shuffle(ui.getExamples());
         ui.setRound(1);
+        ui.setFinalScreen(false);
+        
     }
     
     @Function
