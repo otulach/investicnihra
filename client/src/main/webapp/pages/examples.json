@@ -1,0 +1,142 @@
+[
+    {
+        "title" : "Nemocnice na Bulovce",
+        "min" : 0,
+        "invest" : 1000000,
+        "gain" : 1500000,
+        "mul" : 10, "div" : 5
+    },
+    {
+        "title" : "Příklad2",
+        "min" : 0,
+        "invest" : 1000000,
+        "gain" : 1200000,
+        "mul" : 7, "div" : 4
+    },
+    {
+        "title" : "Příklad3",
+        "min" : 0,
+        "invest" : 1000000,
+        "gain" : 1200000,
+        "mul" : 7, "div" : 4
+    },
+    {
+        "title" : "Příklad4",
+        "min" : 0,
+        "invest" : 1000000,
+        "gain" : 1200000,
+        "mul" : 7, "div" : 4
+    },
+    {
+        "title" : "Příklad5",
+        "min" : 0,
+        "invest" : 1000000,
+        "gain" : 1200000,
+        "mul" : 7, "div" : 4
+    },
+    {
+        "title" : "Příklad6",
+        "min" : 0,
+        "invest" : 1000000,
+        "gain" : 1200000,
+        "mul" : 7, "div" : 4
+    },
+    {
+        "title" : "Příklad7",
+        "min" : 0,
+        "invest" : 1000000,
+        "gain" : 1200000,
+        "mul" : 7, "div" : 4
+    },
+    {
+        "title" : "Příklad8",
+        "min" : 0,
+        "invest" : 1000000,
+        "gain" : 1200000,
+        "mul" : 7, "div" : 4
+    },
+    {
+        "title" : "Příklad9",
+        "min" : 0,
+        "invest" : 1000000,
+        "gain" : 1200000,
+        "mul" : 7, "div" : 4
+    },
+    {
+        "title" : "Příklad10",
+        "min" : 0,
+        "invest" : 1000000,
+        "gain" : 1200000,
+        "mul" : 7, "div" : 4
+    },
+    {
+        "title" : "Příklad11",
+        "min" : 0,
+        "invest" : 1000000,
+        "gain" : 1200000,
+        "mul" : 7, "div" : 4
+    },
+    {
+        "title" : "Příklad12",
+        "min" : 0,
+        "invest" : 1000000,
+        "gain" : 1200000,
+        "mul" : 7, "div" : 4
+    },
+    {
+        "title" : "Příklad13",
+        "min" : 0,
+        "invest" : 1000000,
+        "gain" : 1200000,
+        "mul" : 7, "div" : 4
+    },
+    {
+        "title" : "Příklad14",
+        "min" : 10000000,
+        "invest" : 1000000,
+        "gain" : 1200000,
+        "mul" : 7, "div" : 4
+    },
+    {
+        "title" : "Příklad15",
+        "min" : 10000000,
+        "invest" : 1000000,
+        "gain" : 1200000,
+        "mul" : 7, "div" : 4
+    },
+    {
+        "title" : "Příklad16",
+        "min" : 10000000,
+        "invest" : 1000000,
+        "gain" : 1200000,
+        "mul" : 7, "div" : 4
+    },
+    {
+        "title" : "Příklad17",
+        "min" : 10000000,
+        "invest" : 1000000,
+        "gain" : 1200000,
+        "mul" : 7, "div" : 4
+    },
+    {
+        "title" : "Příklad18",
+        "min" : 10000000,
+        "invest" : 1000000,
+        "gain" : 1200000,
+        "mul" : 7, "div" : 4
+    },
+    {
+        "title" : "Příklad19",
+        "min" : 0,
+        "invest" : 1000000,
+        "gain" : 1200000,
+        "mul" : 7, "div" : 4
+    },
+    {
+        "title" : "Příklad20",
+        "min" : 0,
+        "invest" : 1000000,
+        "gain" : 1200000,
+        "mul" : 7, "div" : 4
+    }
+]
