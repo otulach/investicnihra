@@ -4,7 +4,7 @@ import net.java.html.json.ComputedProperty;
 import net.java.html.json.Function;
 import net.java.html.json.Model;
 import net.java.html.json.Property;
-import cz.xelfi.demo.investicnihra.js.Dialogs;
+import cz.xelfi.demo.investicnihra.js.Utilities;
 import java.util.Collections;
 import java.util.List;
 import net.java.html.json.OnReceive;
