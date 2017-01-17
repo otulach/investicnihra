@@ -24,8 +24,15 @@
     </center>
         </div>
         
+        <div>
+            <h1>         </h1>
+            <h1>         </h1>
+            <h1>         </h1>
+            
+        </div>
+        
         <div data-bind="visible: investmentScreen">
-           <h2>Máte 20 sekund</h2>
+            <h2>Máte <span data-bind="text: time"></span> sekund</h2>
             <center data-bind="with: current">
                 <h2> <span data-bind="text: title"></span></h2>
                 <h2> Investice: <span data-bind="text: invest"></span> Kč</h2>

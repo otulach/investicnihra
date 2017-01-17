@@ -7,6 +7,7 @@ import net.java.html.json.Property;
 import cz.xelfi.demo.investicnihra.js.Utilities;
 import java.util.Collections;
 import java.util.List;
+import net.java.html.json.ModelOperation;
 import net.java.html.json.OnReceive;
 
 @Model(className = "Data", targetId="", properties = {
@@ -18,6 +19,7 @@ import net.java.html.json.OnReceive;
     @Property(name = "round", type = int.class),
     @Property(name = "examples", type = Example.class, array = true),
     @Property(name = "current", type = Example.class),
+    @Property(name = "time", type = int.class)
 })
 final class DataModel {
     private static Data ui;
@@ -50,6 +52,8 @@ final class DataModel {
     
     @Function
     static void invest(Data ui) {
+        ui.setTime(30);
+        ui.nextCountDown();
         ui.setCurrent(ui.getExamples().get(ui.getRound() - 1));
         ui.setRound(ui.getRound() + 1);
         ui.setInvestmentScreen(true);
@@ -71,7 +75,29 @@ final class DataModel {
         ui.setMoney(ui.getMoney() + delta);        
         ui.setInvestmentScreen(false);
         ui.setContinueScreen(true);
-        
+    }
+    
+    @ModelOperation
+    static void nextCountDown(final Data ui) {
+        Utilities.afterASecond(new Runnable() {
+            @Override
+            public void run() {
+                ui.nextSecondGone();
+            }
+        });
+    }
+    
+    @ModelOperation
+    static void nextSecondGone(Data ui) {
+        if (ui.getTime() == 0) {
+            ui.setInvestmentScreen(false);
+            ui.setContinueScreen(true);
+        } else {
+            if (ui.isInvestmentScreen()) {
+                ui.setTime(ui.getTime() - 1);
+                ui.nextCountDown();
+            }
+        }
     }
     
     @OnReceive(url = "{path}", onError = "loadExamplesFailed")
