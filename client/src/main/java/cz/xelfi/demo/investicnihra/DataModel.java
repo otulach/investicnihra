@@ -76,7 +76,7 @@ final class DataModel {
     static void invest(Data ui) {
         ui.setTime(30);
         ui.nextCountDown();
-        ui.setCurrent(ui.getExamples().get(ui.getRound() - 1));
+        ui.setCurrent(ui.getExamples().get(ui.getRound()));
         ui.setRound(ui.getRound() + 1);
         ui.setInvestmentScreen(true);
         ui.setContinueScreen(false);
