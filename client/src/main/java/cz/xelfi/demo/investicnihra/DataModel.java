@@ -43,6 +43,11 @@ final class DataModel {
     }
     
     @ComputedProperty
+    static int nextRound(int round) {
+        return round + 1;
+    }
+    
+    @ComputedProperty
     static int average(int money, int round) {
         if (round == 0)  {
              return 0;   
@@ -56,7 +61,7 @@ final class DataModel {
         ui.setContinueScreen(true);
         ui.setWelcomeScreen(false);
         Collections.shuffle(ui.getExamples());
-        ui.setRound(1);
+        ui.setRound(0);
         ui.setFinalScreen(false);
         
     }
