@@ -60,6 +60,13 @@ final class DataModel {
         ui.setFinalScreen(false);
         
     }
+    @Function
+    static void finish(Data ui) {
+        ui.setContinueScreen(false);
+        ui.setWelcomeScreen(false);
+        ui.setFinalScreen(true);
+        
+    }
     
     @Function
     static void invest(Data ui) {

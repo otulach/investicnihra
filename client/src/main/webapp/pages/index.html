@@ -20,11 +20,11 @@
         <h1>Máte <span data-bind="text: money"></span> Kč</h1>
         <div><span data-bind="text:round"></span>. kolo</div>
         <button data-bind="click: invest">Investovat</button>
-        <button>Ukončit hru</button>
+        <button data-bind="click: finish">Ukončit hru</button>
     </center>
         </div>
         
-        <div>
+        <div data-bind="visible: finalScreen">
             <h1>         </h1>
             <h1>         </h1>
             <h1>         </h1>
@@ -32,8 +32,7 @@
             <h1>         </h1>
             <h1>         </h1>
         <center>    
-            <h1>Váš průměr je <span data-bind="text:average" Kč </h1>
-            <h1>na kolo</h1>
+            <h1>Váš průměr je <span data-bind="text:average"></span> Kč na kolo. </h1>
         </center>    
             
         </div>
