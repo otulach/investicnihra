@@ -65,7 +65,6 @@ final class DataModel {
         ui.setContinueScreen(false);
         ui.setWelcomeScreen(false);
         ui.setFinalScreen(true);
-        
     }
     
     @Function
