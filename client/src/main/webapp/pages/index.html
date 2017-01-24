@@ -11,11 +11,11 @@
     <center>
         <h1>Investiční Hra</h1>
         <div>Název Firmy:<input placeholder="min. 4 znaky" data-bind="textInput: company"/></div>
-        <button data-bind="click: start, enable: companyOK">Start</button>
+        <button disabled="true" data-bind="click: start, enable: companyOK">Start</button>
     </center>
         </div>
        
-        <div data-bind="visible: continueScreen">
+        <div style="display: none" data-bind="visible: continueScreen">
     <center>
         <h1>Máte <span data-bind="text: money"></span> Kč</h1>
         <div><span data-bind="text:nextRound"></span>. kolo</div>
@@ -24,7 +24,7 @@
     </center>
         </div>
         
-        <div data-bind="visible: finalScreen">
+        <div style="display: none" data-bind="visible: finalScreen">
             <h1>         </h1>
             <h1>         </h1>
             <h1>         </h1>
@@ -38,7 +38,7 @@
             
         </div>
         
-        <div data-bind="visible: investmentScreen">
+        <div style="display: none" data-bind="visible: investmentScreen">
             <h2>Máte <span data-bind="text: time"></span> sekund</h2>
             <center data-bind="with: current">
                 <h2> <span data-bind="text: title"></span></h2>
