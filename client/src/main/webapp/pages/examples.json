@@ -1,45 +1,45 @@
 [
     {
-        "title" : "Příklad1",
+        "title" : "",
         "min" : 0,
-        "invest" : 1000000,
+        "invest" : 2100000,
+        "gain" : 2350000,
+        "mul" : 6, "div" : 5
+    },
+    {
+        "title" : "",
+        "min" : 0,
+        "invest" : 20000000,
+        "gain" : 17000000,
+        "mul" : 11000000, "div" : 10000000
+    },
+    {
+        "title" : "",
+        "min" : 0,
+        "invest" : 1200000,
         "gain" : 1500000,
-        "mul" : 10, "div" : 5
+        "mul" : 3, "div" : 2
     },
     {
-        "title" : "Příklad2",
+        "title" : "",
         "min" : 0,
-        "invest" : 1000000,
-        "gain" : 1200000,
-        "mul" : 7, "div" : 4
+        "invest" : 1500000,
+        "gain" : 2150000,
+        "mul" : 5, "div" : 4
     },
     {
-        "title" : "Příklad3",
+        "title" : "",
         "min" : 0,
-        "invest" : 1000000,
-        "gain" : 1200000,
-        "mul" : 7, "div" : 4
+        "invest" : 1750000,
+        "gain" : 2100000,
+        "mul" : 9, "div" : 7
     },
     {
-        "title" : "Příklad4",
+        "title" : "",
         "min" : 0,
-        "invest" : 1000000,
+        "invest" : 920000,
         "gain" : 1200000,
-        "mul" : 7, "div" : 4
-    },
-    {
-        "title" : "Příklad5",
-        "min" : 0,
-        "invest" : 1000000,
-        "gain" : 1200000,
-        "mul" : 7, "div" : 4
-    },
-    {
-        "title" : "Příklad6",
-        "min" : 0,
-        "invest" : 1000000,
-        "gain" : 1200000,
-        "mul" : 7, "div" : 4
+        "mul" : 15, "div" : 9
     },
     {
         "title" : "Příklad7",
