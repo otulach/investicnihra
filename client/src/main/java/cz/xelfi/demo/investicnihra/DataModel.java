@@ -86,8 +86,16 @@ final class DataModel {
     static void chooseGain(Data ui, Example data) {
         int delta = data.getGain() - data.getInvest(); 
         ui.setMoney(ui.getMoney() + delta);
-        ui.setInvestmentScreen(false);
-        ui.setContinueScreen(true);
+        finishInvestment(ui);
+    }
+
+    private static void finishInvestment(Data ui1) {
+        ui1.setInvestmentScreen(false);
+        if (ui1.getRound() == 15) {
+            ui1.setFinalScreen(true);
+        } else {
+            ui1.setContinueScreen(true);
+        }
     }
     
     @Function
@@ -95,8 +103,7 @@ final class DataModel {
         int gain = data.getInvest() / data.getDiv() * data.getMul();
         int delta = gain - data.getInvest(); 
         ui.setMoney(ui.getMoney() + delta);        
-        ui.setInvestmentScreen(false);
-        ui.setContinueScreen(true);
+        finishInvestment(ui);
     }
     
     @ModelOperation
@@ -112,8 +119,7 @@ final class DataModel {
     @ModelOperation
     static void nextSecondGone(Data ui) {
         if (ui.getTime() == 0) {
-            ui.setInvestmentScreen(false);
-            ui.setContinueScreen(true);
+            finishInvestment(ui);
         } else {
             if (ui.isInvestmentScreen()) {
                 ui.setTime(ui.getTime() - 1);
