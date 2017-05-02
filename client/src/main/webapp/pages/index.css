@@ -1,0 +1,18 @@
+#welcome{
+    height: 95vh;
+    background-image: url("http://images.fineartamerica.com/images-medium-large/study-of-new-york-city-in-turquoise-lee-ann-adendorff.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+#continue-screen{
+    height: 95vh;
+    background-image: url("http://1gr.cz/fotky/idnes/10/023/cl6/JB315174_prachy_011.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+#finish-screen{
+    height: 95vh;
+    background-image: url("http://websitedesignersdc.com/wp-content/uploads/2013/07/profit.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}

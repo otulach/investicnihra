@@ -106,17 +106,17 @@
     },
     {
         "title" : "Příklad16",
-        "min" : 10000000,
-        "invest" : 1000000,
-        "gain" : 1200000,
-        "mul" : 7, "div" : 4
+        "min" : 0,
+        "invest" : 2750000,
+        "gain" : 3100000,
+        "mul" : 13, "div" : 11
     },
     {
         "title" : "Příklad17",
-        "min" : 10000000,
-        "invest" : 1000000,
-        "gain" : 1200000,
-        "mul" : 7, "div" : 4
+        "min" : 0,
+        "invest" : 2500000,
+        "gain" : 3000000,
+        "mul" : 6, "div" : 2
     },
     {
         "title" : "Příklad18",

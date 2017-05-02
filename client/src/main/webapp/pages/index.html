@@ -4,10 +4,11 @@
         <title>Investiční Hra</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="index.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         
-        <div data-bind="visible: welcomeScreen">
+        <div id="welcome" data-bind="visible: welcomeScreen">
     <center>
         <h1>Investiční Hra</h1>
         <div>Název Firmy:<input placeholder="min. 4 znaky" data-bind="textInput: company"/></div>
@@ -15,7 +16,7 @@
     </center>
         </div>
        
-        <div style="display: none" data-bind="visible: continueScreen">
+        <div id="continue-screen" data-bind="visible: continueScreen">
     <center>
         <h1>Máte <span data-bind="text: money"></span> Kč</h1>
         <div><span data-bind="text:nextRound"></span>. kolo</div>
@@ -24,7 +25,7 @@
     </center>
         </div>
         
-        <div style="display: none" data-bind="visible: finalScreen">
+        <div id="finish-screen" data-bind="visible: finalScreen">
             <h1>         </h1>
             <h1>         </h1>
             <h1>         </h1>
