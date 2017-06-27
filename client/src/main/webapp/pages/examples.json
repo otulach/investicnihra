@@ -105,38 +105,122 @@
         "mul" : 14, "div" : 10
     },
     {
-        "title" : "Příklad16",
+        "title" : "Elektrické služby M&V",
         "min" : 0,
-        "invest" : 2750000,
-        "gain" : 3100000,
-        "mul" : 13, "div" : 11
+        "invest" : 1500000,
+        "gain" : 2000000,
+        "mul" : 5, "div" : 3
     },
     {
-        "title" : "Příklad17",
+        "title" : "Google",
+        "min" : 0,
+        "invest" : 100000000000,
+        "gain" : 111000000000000,
+        "mul" : 100, "div" : 20
+    },
+    {
+        "title" : "Poštovní služby Panáček",
         "min" : 0,
         "invest" : 2500000,
-        "gain" : 3000000,
-        "mul" : 6, "div" : 2
+        "gain" : 3200000,
+        "mul" : 12, "div" : 8
     },
     {
-        "title" : "Příklad18",
-        "min" : 10000000,
-        "invest" : 1000000,
-        "gain" : 1200000,
-        "mul" : 7, "div" : 4
-    },
-    {
-        "title" : "Příklad19",
+        "title" : "Sbírka latinských Biblí",
         "min" : 0,
-        "invest" : 1000000,
-        "gain" : 1200000,
-        "mul" : 7, "div" : 4
+        "invest" : 500000,
+        "gain" : 750000,
+        "mul" : 8, "div" : 5
     },
     {
-        "title" : "Příklad20",
+        "title" : "Latinskoamerická muzea",
         "min" : 0,
-        "invest" : 1000000,
+        "invest" : 3000000,
+        "gain" : 4500000,
+        "mul" : 500, "div" : 1000
+    },
+    {
+        "title" : "Taneční kurzy Krteček",
+        "min" : 0,
+        "invest" : 900000,
         "gain" : 1200000,
-        "mul" : 7, "div" : 4
+        "mul" : 18, "div" : 12
+    }, 
+    {
+        "title" : "Výzkum autonomních klavírů",
+        "min" : 0,
+        "invest" : 10000,
+        "gain" : 1000000,
+        "mul" : 100, "div" : 4
+    },
+    {
+        "title" : "Kurzy kreslení nohama",
+        "min" : 0,
+        "invest" : 6400000,
+        "gain" : 6000000,
+        "mul" : 8, "div" : 5
+    },
+    {
+        "title" : "Filmové studio: Orlicnoš",
+        "min" : 0,
+        "invest" : 9000000,
+        "gain" : 12000000,
+        "mul" : 3, "div" : 2
+    },
+    {
+        "title" : "Mediální skupina: ČST",
+        "min" : 0,
+        "invest" : 6500000,
+        "gain" : 8000000,
+        "mul" : 25, "div" : 10
+    },
+    {
+        "title" : "Kosmetika pro morčata",
+        "min" : 0,
+        "invest" : 10000000,
+        "gain" : 13000000,
+        "mul" : 5, "div" : 4
+    },
+     {
+        "title" : "Klub mladých kubistů",
+        "min" : 0,
+        "invest" : 4000000,
+        "gain" : 5550000,
+        "mul" : 6, "div" : 4
+    },
+     {
+        "title" : "Posilovny pro důchodce",
+        "min" : 0,
+        "invest" : 7000000,
+        "gain" : 9500000,
+        "mul" : 3, "div" : 2
+    },
+     {
+        "title" : "Kurzy plavání pro nemluvňata",
+        "min" : 0,
+        "invest" : 2000000,
+        "gain" : 2750000,
+        "mul" : 14, "div" : 8
+    },
+     {
+        "title" : "Bruntálská porodnice",
+        "min" : 0,
+        "invest" : 6000000,
+        "gain" : 49500000,
+        "mul" : 240, "div" : 200
+    },
+     {
+        "title" : "Výzkum laserových zbraní",
+        "min" : 0,
+        "invest" : 27500000,
+        "gain" : 30000000,
+        "mul" : 100000000, "div" : 1000000000
+    },
+    {
+        "title" : "Moderní alchymie",
+        "min" : 0,
+        "invest" : 14600000,
+        "gain" : 15200000,
+        "mul" : 28, "div" : 25
     }
 ]
