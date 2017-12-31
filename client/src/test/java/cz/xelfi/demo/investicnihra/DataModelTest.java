@@ -1,5 +1,6 @@
 package cz.xelfi.demo.investicnihra;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import net.java.html.junit.BrowserRunner;
@@ -21,7 +22,7 @@ public class DataModelTest {
         Result r3 = new Result("tul2", 334442, 0);
         Result r4 = new Result("tul3", 334441, 0);
         Result r5 = new Result("tul4", 334440, 0);
-        List<Result> list = Arrays.asList(r1, r2, r3, r4, r5);
+        List<Result> list = new ArrayList<>(Arrays.asList(r1, r2, r3, r4, r5));
         Result newresult = new Result("jar", 334442, 0);
         DataModel.ResultModel.insert(list, newresult, 5);
         

@@ -44,7 +44,13 @@ final class DataModel {
     })
     static class ResultModel {
         static void insert(List<Result> topten, Result newresult, int max) {
-            
+            for (int i = 0; i < topten.size(); i++) {
+                Result r = topten.get(i);
+                if (newresult.getAverage() >= r.getAverage()) {
+                    topten.add(i, newresult);
+                    break;
+                }
+            }
         }
     }
     
