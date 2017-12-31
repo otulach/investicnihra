@@ -51,6 +51,9 @@ final class DataModel {
                     break;
                 }
             }
+            while (topten.size() > max) {
+                topten.remove(topten.size() - 1);
+            }
         }
     }
     
