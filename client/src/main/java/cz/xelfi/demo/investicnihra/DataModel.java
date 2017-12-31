@@ -36,6 +36,17 @@ final class DataModel {
     })
     static class ExampleModel {
     }
+    @Model(className = "Result", properties = {
+        @Property(name = "company", type = String.class),
+        @Property(name = "average", type = int.class),
+        @Property(name = "when", type = long.class),
+      
+    })
+    static class ResultModel {
+        static void insert(List<Result> topten, Result newresult, int max) {
+            
+        }
+    }
     
     @ComputedProperty
     static boolean companyOK(String company) {
