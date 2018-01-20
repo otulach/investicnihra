@@ -222,11 +222,6 @@
         <type>jar</type>
     </dependency>
     < ! - - End of Bck2Brwsr VM presenter for BrowserRunner -->
-    <dependency>
-      <artifactId>junit</artifactId>
-      <groupId>junit</groupId>
-      <version>4.11</version>
-    </dependency>
   </dependencies>
   <profiles>
       <profile>
