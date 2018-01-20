@@ -19,6 +19,7 @@ import net.java.html.json.OnReceive;
     @Property(name = "company", type = String.class),
     @Property(name = "round", type = int.class),
     @Property(name = "examples", type = Example.class, array = true),
+    @Property(name = "results", type = Result.class, array = true),
     @Property(name = "current", type = Example.class),
     @Property(name = "time", type = int.class)
 })
@@ -97,6 +98,8 @@ final class DataModel {
     static void finish(Data ui) {
         ui.setContinueScreen(false);
         ui.setWelcomeScreen(false);
+        Result newresult = new Result(ui.getCompany(), ui.getAverage(), System.currentTimeMillis());
+        DataModel.ResultModel.insert(ui.getResults(), newresult, 5);
         ui.setFinalScreen(true);
     }
     

@@ -36,6 +36,12 @@
             <h1>Průměrný zisk investora <span data-bind="text:company"></span> je <span data-bind="text:average"></span> Kč na kolo. </h1>
             <button data-bind="click: start">Hrát Znovu</button>
             <button data-bind="click: name">Jiný Název</button>
+            <ol data-bind="foreach: results">
+            <li>
+                Hráč se jménem <span data-bind="text: company"></span>
+                s průměrem <span data-bind="text: average"></span>
+            </li>
+            </ol>
         </center>    
             
         </div>
