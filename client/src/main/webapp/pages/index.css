@@ -10,12 +10,7 @@
     background-repeat: no-repeat;
     background-size: 100%;
 }
-#finish-screen{
-    height: 95vh;
-    background-image: url("http://websitedesignersdc.com/wp-content/uploads/2013/07/profit.png");
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
+
 .frac {
     display: inline-block;
     position: relative;
