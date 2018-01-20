@@ -1,5 +1,8 @@
 package cz.xelfi.demo.investicnihra;
 
+import cz.xelfi.demo.investicnihra.js.Firebase;
+import cz.xelfi.demo.investicnihra.js.Firebase.Ref;
+import cz.xelfi.demo.investicnihra.js.FirebaseConfig;
 import net.java.html.json.ComputedProperty;
 import net.java.html.json.Function;
 import net.java.html.json.Model;
@@ -10,7 +13,7 @@ import java.util.List;
 import net.java.html.json.ModelOperation;
 import net.java.html.json.OnReceive;
 
-@Model(className = "Data", targetId="", properties = {
+@Model(className = "Data", targetId="", instance = true, properties = {
     @Property(name = "money", type = int.class),
     @Property(name = "welcomeScreen", type = boolean.class),
     @Property(name = "continueScreen", type = boolean.class),
@@ -24,7 +27,13 @@ import net.java.html.json.OnReceive;
     @Property(name = "time", type = int.class)
 })
 final class DataModel {
-    private static Data ui;
+    private Ref ref;
+    
+    @ModelOperation
+    void assignRef(Data data, Ref ref) {
+        ref.on(data.getResults());
+        this.ref = ref;
+    }
 
     @Model(className = "Example", properties = {
         @Property(name = "title", type = String.class),
@@ -45,6 +54,9 @@ final class DataModel {
     })
     static class ResultModel {
         static void insert(List<Result> topten, Result newresult, int max) {
+            while (topten.size() < max) {
+                topten.add(new Result("neznámá", 0, 0L));
+            }
             for (int i = 0; i < topten.size(); i++) {
                 Result r = topten.get(i);
                 if (newresult.getAverage() >= r.getAverage()) {
@@ -95,11 +107,12 @@ final class DataModel {
         ui.setCompany("");
     }
     @Function
-    static void finish(Data ui) {
+    void finish(Data ui) {
         ui.setContinueScreen(false);
         ui.setWelcomeScreen(false);
         Result newresult = new Result(ui.getCompany(), ui.getAverage(), System.currentTimeMillis());
         DataModel.ResultModel.insert(ui.getResults(), newresult, 5);
+        ref.set(ui.getResults());
         ui.setFinalScreen(true);
     }
     
@@ -175,9 +188,19 @@ final class DataModel {
      * Called when the page is ready.
      */
     static void onPageLoad() throws Exception {
-        ui = new Data();
+        Data ui = new Data();
         ui.setWelcomeScreen(true);
         ui.loadExamples("examples.json");
         ui.applyBindings();
+        Firebase db = Firebase.create(new FirebaseConfig().
+            useApiKey("AIzaSyARaHhhBpMCeJ0dV7dhUglMFvSc4AbVOgU").
+            useAuthDomain("investicnihra.firebaseapp.com").
+            useDatabaseURL("https://investicnihra.firebaseio.com").
+            useProjectId("investicnihra").
+            useStorageBucket("").
+            useMessagingSenderId("854224066852")
+        );
+        final Firebase.Ref<Result> ref = db.ref(Result.class, "topten");
+        ui.assignRef(ref);
     }
 }
