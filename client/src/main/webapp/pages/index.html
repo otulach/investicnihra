@@ -13,6 +13,12 @@
         <h1>Investiční Hra</h1>
         <div>Název Firmy:<input placeholder="min. 4 znaky" data-bind="textInput: company"/></div>
         <button disabled="true" data-bind="click: start, enable: companyOK">Start</button>
+        <ol data-bind="foreach: results">
+            <li>
+                <span data-bind="text: company"></span>
+                s průměrem <span data-bind="text: average"></span>
+            </li>
+            </ol>
     </center>
         </div>
        
@@ -38,7 +44,7 @@
             <button data-bind="click: name">Jiný Název</button>
             <ol data-bind="foreach: results">
             <li>
-                Hráč se jménem <span data-bind="text: company"></span>
+                <span data-bind="text: company"></span>
                 s průměrem <span data-bind="text: average"></span>
             </li>
             </ol>
