@@ -12,8 +12,9 @@
     <modules>
         <module>client</module>
         <module>client-web</module>
+        <module>client-moe</module>
         <module>js</module>
-    </modules>
+  </modules>
     <properties>
         <net.java.html.version>1.5.1</net.java.html.version>
         <bck2brwsr.version>0.22</bck2brwsr.version>
@@ -56,4 +57,17 @@
             </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>android</id>
+            <activation>
+                <property>
+                    <name>!android.sdk.path</name>
+                </property>
+            </activation>
+            <modules>
+                <module>client-android</module>
+            </modules>
+        </profile>
+    </profiles>
 </project>
