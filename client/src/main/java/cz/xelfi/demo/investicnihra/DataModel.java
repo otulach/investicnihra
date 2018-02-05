@@ -19,6 +19,7 @@ import net.java.html.json.OnReceive;
     @Property(name = "continueScreen", type = boolean.class),
     @Property(name = "investmentScreen", type = boolean.class),
     @Property(name = "finalScreen", type = boolean.class),
+    @Property(name = "statsScreen", type = boolean.class),
     @Property(name = "company", type = String.class),
     @Property(name = "round", type = int.class),
     @Property(name = "examples", type = Example.class, array = true),
@@ -45,7 +46,7 @@ final class DataModel {
         
     })
     static class ExampleModel {
-    }
+                        }
     @Model(className = "Result", properties = {
         @Property(name = "company", type = String.class),
         @Property(name = "average", type = int.class),
@@ -105,6 +106,20 @@ final class DataModel {
         ui.setWelcomeScreen(true);
         ui.setFinalScreen(false);
         ui.setCompany("");
+    }
+    @Function
+    static void stats(Data ui) {
+        ui.setContinueScreen(false);
+        ui.setWelcomeScreen(false);
+        ui.setFinalScreen(false);
+        ui.setStatsScreen(true);
+    }
+    @Function
+    static void back(Data ui) {
+        ui.setContinueScreen(false);
+        ui.setWelcomeScreen(false);
+        ui.setFinalScreen(true);
+        ui.setStatsScreen(false);
     }
     @Function
     void finish(Data ui) {

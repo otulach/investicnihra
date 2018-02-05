@@ -31,6 +31,13 @@
     </center>
         </div>
         
+        <div id="stats-screen" data-bind="visible: statsScreen">
+        <button data-bind="click: back">Zpět</button>  
+    <center>
+       <h1>Váš zisk vs. Optimální zisk</h1> 
+    </center>
+        </div>
+        
         <div id="finish-screen" data-bind="visible: finalScreen">
             <h1>         </h1>
             <h1>         </h1>
@@ -42,6 +49,7 @@
             <h1>Průměrný zisk investora <span data-bind="text:company"></span> je <span data-bind="text:average"></span> Kč na kolo. </h1>
             <button data-bind="click: start">Hrát Znovu</button>
             <button data-bind="click: name">Jiný Název</button>
+            <button data-bind="click: stats">Hodnocení</button>
             <ol data-bind="foreach: results">
             <li>
                 <span data-bind="text: company"></span>
