@@ -12,6 +12,7 @@ import java.util.Collections;
 import java.util.List;
 import net.java.html.json.ModelOperation;
 import net.java.html.json.OnReceive;
+import net.java.html.charts.*;
 
 @Model(className = "Data", targetId="", instance = true, properties = {
     @Property(name = "money", type = int.class),
@@ -25,16 +26,28 @@ import net.java.html.json.OnReceive;
     @Property(name = "examples", type = Example.class, array = true),
     @Property(name = "results", type = Result.class, array = true),
     @Property(name = "current", type = Example.class),
-    @Property(name = "time", type = int.class)
+    @Property(name = "time", type = int.class),
+    @Property(name = "gains", type = Gain.class, array = true)
 })
 final class DataModel {
     private Ref ref;
+    private Chart<Values, Config> chart;
     
     @ModelOperation
     void assignRef(Data data, Ref ref) {
         ref.on(data.getResults());
         this.ref = ref;
     }
+                        
+    @Model(className = "Gain", properties = {
+        @Property(name = "minimum", type = int.class),
+        @Property(name = "maximum", type = int.class),
+        @Property(name = "player", type = int.class),
+      
+    })
+    static class StatsModel {
+    }
+ 
 
     @Model(className = "Example", properties = {
         @Property(name = "title", type = String.class),
@@ -96,6 +109,8 @@ final class DataModel {
         ui.setWelcomeScreen(false);
         Collections.shuffle(ui.getExamples());
         ui.setRound(0);
+        ui.getGains().clear();
+        ui.getGains().add(new Gain(0, 0, ui.getMoney()));
         ui.setFinalScreen(false);
         
     }
@@ -108,11 +123,25 @@ final class DataModel {
         ui.setCompany("");
     }
     @Function
-    static void stats(Data ui) {
+    void stats(Data ui) {
         ui.setContinueScreen(false);
         ui.setWelcomeScreen(false);
         ui.setFinalScreen(false);
         ui.setStatsScreen(true);
+        if (chart != null) {
+            chart.destroy();
+        }
+        chart = Chart.createLine(
+                new Values.Set("minimum", Color.valueOf("#F15854"), Color.valueOf("#4D4D4D")),
+                new Values.Set("maximum", Color.valueOf("#F15854"), Color.valueOf("#4D4D4D")),
+                new Values.Set("hráč", Color.valueOf("#F15854"), Color.valueOf("#4D4D4D"))
+        );
+        for (int i = 0; i < ui.getGains().size(); i++) {
+            Gain g = ui.getGains().get(i);
+            chart.getData().add(new Values("",g.getMinimum(), g.getMaximum(), g.getPlayer()));
+            
+        }
+        chart.applyTo("stats");
     }
     @Function
     static void back(Data ui) {
@@ -145,6 +174,7 @@ final class DataModel {
     static void chooseGain(Data ui, Example data) {
         int delta = data.getGain() - data.getInvest(); 
         ui.setMoney(ui.getMoney() + delta);
+        ui.getGains().add(new Gain(0, 0, ui.getMoney()));
         finishInvestment(ui);
     }
 
@@ -161,7 +191,8 @@ final class DataModel {
     static void chooseMulDiv(Data ui, Example data) {
         int gain = data.getInvest() / data.getDiv() * data.getMul();
         int delta = gain - data.getInvest(); 
-        ui.setMoney(ui.getMoney() + delta);        
+        ui.setMoney(ui.getMoney() + delta);
+        ui.getGains().add(new Gain(0, 0, ui.getMoney()));        
         finishInvestment(ui);
     }
     

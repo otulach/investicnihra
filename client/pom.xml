@@ -186,6 +186,12 @@
         <scope>test</scope>
         <type>jar</type>
     </dependency>
+    <dependency>
+        <groupId>com.dukescript.api</groupId>
+        <artifactId>charts</artifactId>
+        <version>1.0</version>
+        <type>jar</type>
+    </dependency>
 
     <!-- Nashorn presenter for BrowserRunner
     <dependency>
