@@ -59,7 +59,17 @@ final class DataModel {
         
     })
     static class ExampleModel {
-                        }
+
+        static Example choose(List<Example> examples, int money) {
+            for (int i = 0; i < examples.size(); i++) {
+                Example e = examples.get(i);
+                if (money >= e.getMin()) {
+                    return examples.remove(i);
+                }
+            }
+            return null;
+        }    
+    }
     @Model(className = "Result", properties = {
         @Property(name = "company", type = String.class),
         @Property(name = "average", type = int.class),
@@ -164,7 +174,8 @@ final class DataModel {
     static void invest(Data ui) {
         ui.setTime(30);
         ui.nextCountDown();
-        ui.setCurrent(ui.getExamples().get(ui.getRound()));
+        Example e = DataModel.ExampleModel.choose(ui.getExamples(), ui.getMoney());
+        ui.setCurrent(e);
         ui.setRound(ui.getRound() + 1);
         ui.setInvestmentScreen(true);
         ui.setContinueScreen(false);

@@ -54,5 +54,21 @@ public class DataModelTest {
         assertEquals("tul3", list.get(4).getCompany());
         assertEquals(5, list.size());
     }
+    @Test public void chooseExample(){
+        Example r1 = new Example("a", 7000010, 1000001,1600001 , 71, 51);
+        Example r2 = new Example("b", 7000002, 1000002,1600002 , 72, 52);
+        Example r3 = new Example("c", 7000003, 1000003,1600003 , 73, 53);
+        Example r4 = new Example("d", 7000004, 1000004,1600004 , 74, 54);
+        Example r5 = new Example("e", 7000005, 1000005,1600005 , 75, 55);
+        List<Example> list = new ArrayList<>(Arrays.asList(r1, r2, r3, r4, r5));
+        Example res = DataModel.ExampleModel.choose(list, 7000003);
+        
+        assertEquals(r2, res);
+        assertEquals("a", list.get(0).getTitle());
+        assertEquals("c", list.get(1).getTitle());
+        assertEquals("d", list.get(2).getTitle());
+        assertEquals("e", list.get(3).getTitle());     
+        assertEquals(4, list.size());
+    }
 
 }
