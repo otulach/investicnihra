@@ -23,6 +23,7 @@ import net.java.html.charts.*;
     @Property(name = "statsScreen", type = boolean.class),
     @Property(name = "company", type = String.class),
     @Property(name = "round", type = int.class),
+    @Property(name = "initExamples", type = Example.class, array = true),
     @Property(name = "examples", type = Example.class, array = true),
     @Property(name = "results", type = Result.class, array = true),
     @Property(name = "current", type = Example.class),
@@ -107,6 +108,8 @@ final class DataModel {
         ui.setMoney(5_000_000);
         ui.setContinueScreen(true);
         ui.setWelcomeScreen(false);
+        ui.getExamples().clear();
+        ui.getExamples().addAll(ui.getInitExamples());
         Collections.shuffle(ui.getExamples());
         ui.setRound(0);
         ui.getGains().clear();
@@ -220,14 +223,14 @@ final class DataModel {
     
     @OnReceive(url = "{path}", onError = "loadExamplesFailed")
     static void loadExamples(Data ui, List<Example> examples) {
-        ui.getExamples().clear();
-        ui.getExamples().addAll(examples);
+        ui.getInitExamples().clear();
+        ui.getInitExamples().addAll(examples);
     }
     
     static void loadExamplesFailed(Data ui, Throwable error) {
         error.printStackTrace();
-        ui.getExamples().clear();
-        ui.getExamples().add(new Example("Cannot find examples", 0, 0, 0, 0, 1));
+        ui.getInitExamples().clear();
+        ui.getInitExamples().add(new Example("Cannot find examples", 0, 0, 0, 0, 1));
     }
     
     /**
