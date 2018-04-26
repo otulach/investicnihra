@@ -16,6 +16,7 @@ import net.java.html.charts.*;
 
 @Model(className = "Data", targetId="", instance = true, properties = {
     @Property(name = "money", type = int.class),
+    @Property(name = "maximum", type = int.class),
     @Property(name = "welcomeScreen", type = boolean.class),
     @Property(name = "continueScreen", type = boolean.class),
     @Property(name = "investmentScreen", type = boolean.class),
@@ -59,7 +60,19 @@ final class DataModel {
         
     })
     static class ExampleModel {
+        @ComputedProperty
+        static int maximum(int invest, int gain, int mul, int div) {
+            if (div == 0) {
+                return gain - invest;
+            }
+            if (gain - invest > invest / div * mul - invest) {
+                return gain - invest;
+            } else {
+                return invest / div * mul - invest;
+            }
 
+        }
+    
         static Example choose(List<Example> examples, int money) {
             for (int i = 0; i < examples.size(); i++) {
                 Example e = examples.get(i);
@@ -115,12 +128,13 @@ final class DataModel {
     @Function
     static void start(Data ui) {
         ui.setMoney(5_000_000);
+        ui.setMaximum(5000000);
         ui.setContinueScreen(true);
         ui.setWelcomeScreen(false);
         Collections.shuffle(ui.getExamples());
         ui.setRound(0);
         ui.getGains().clear();
-        ui.getGains().add(new Gain(0, 0, ui.getMoney()));
+        ui.getGains().add(new Gain(0, ui.getMaximum(), ui.getMoney()));
         ui.setFinalScreen(false);
         
     }
@@ -185,7 +199,8 @@ final class DataModel {
     static void chooseGain(Data ui, Example data) {
         int delta = data.getGain() - data.getInvest(); 
         ui.setMoney(ui.getMoney() + delta);
-        ui.getGains().add(new Gain(0, 0, ui.getMoney()));
+        ui.setMaximum(ui.getMaximum() + data.getMaximum());
+        ui.getGains().add(new Gain(0, ui.getMaximum(), ui.getMoney()));
         finishInvestment(ui);
     }
 
@@ -203,7 +218,8 @@ final class DataModel {
         int gain = data.getInvest() / data.getDiv() * data.getMul();
         int delta = gain - data.getInvest(); 
         ui.setMoney(ui.getMoney() + delta);
-        ui.getGains().add(new Gain(0, 0, ui.getMoney()));        
+        ui.setMaximum(ui.getMaximum() + data.getMaximum());
+        ui.getGains().add(new Gain(0, ui.getMaximum(), ui.getMoney()));        
         finishInvestment(ui);
     }
     

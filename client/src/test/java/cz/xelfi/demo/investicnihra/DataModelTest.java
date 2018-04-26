@@ -71,4 +71,19 @@ public class DataModelTest {
         assertEquals(4, list.size());
     }
 
+    @Test
+    public void maxExample() {
+        Example exp = new Example("ahoj", 0, 1000, 1500, 8, 7);
+        assertEquals(500, exp.getMaximum());
+    }
+    @Test
+    public void maxExample2() {
+        Example exp = new Example("ahoj", 0, 1000, 1500, 15, 5);
+        assertEquals(2000, exp.getMaximum());
+    }
+    @Test
+    public void exampleNull() {
+        Example exp = new Example();
+        assertEquals(0, exp.getMaximum());
+    }
 }
