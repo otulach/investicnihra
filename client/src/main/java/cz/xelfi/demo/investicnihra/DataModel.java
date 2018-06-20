@@ -159,13 +159,12 @@ final class DataModel {
             chart.destroy();
         }
         chart = Chart.createLine(
-                new Values.Set("minimum", Color.valueOf("#F15854"), Color.valueOf("#4D4D4D")),
-                new Values.Set("maximum", Color.valueOf("#F14214"), Color.valueOf("#4D4D4D")),
+                new Values.Set("maximum", Color.valueOf("#3366FF"), Color.valueOf("#4D4D4D")),
                 new Values.Set("hráč", Color.valueOf("#F15854"), Color.valueOf("#4D4D4D"))
         );
         for (int i = 0; i < ui.getGains().size(); i++) {
             Gain g = ui.getGains().get(i);
-            chart.getData().add(new Values("",g.getMinimum(), g.getMaximum(), g.getPlayer()));
+            chart.getData().add(new Values("", g.getMaximum(), g.getPlayer()));
             
         }
         chart.applyTo("stats");
