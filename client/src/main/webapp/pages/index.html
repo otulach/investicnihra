@@ -4,7 +4,8 @@
         <title>Investiční Hra</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="index.css" rel="stylesheet" type="text/css"/>
+        <link href="index.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     </head>
     <body>
         
@@ -12,7 +13,8 @@
     <center>
         <h1>Investiční Hra</h1>
         <div>Název Firmy:<input placeholder="min. 4 znaky" data-bind="textInput: company"/></div>
-        <button disabled="true" data-bind="click: start, enable: companyOK">Start</button>
+        <button class="btn waves-effect waves-light" type="submit" name="action" disabled="true" data-bind="click: start, enable: companyOK">Start
+        </button>
         <ol data-bind="foreach: results">
             <li>
                 <span data-bind="text: company"></span>
@@ -26,16 +28,18 @@
     <center>
         <h1>Máte <span data-bind="text: money"></span> Kč</h1>
         <div><span data-bind="text:nextRound"></span>. kolo</div>
-        <button data-bind="click: invest">Investovat</button>
-        <button data-bind="click: finish">Ukončit hru</button>
+        <button class="btn waves-effect waves-light" type="submit" name="action" data-bind="click: invest">Investovat</button>
+        <button class="btn waves-effect waves-light" type="submit" name="action" data-bind="click: finish">Ukončit hru</button>
+        <a class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons" data-bind="click: name">NEW</i></a>
     </center>
         </div>
         
         <div id="stats-screen" data-bind="visible: statsScreen">
-        <button data-bind="click: back">Zpět</button>  
+        <button class="btn waves-effect waves-light" type="submit" name="action" data-bind="click: back">Zpět</button>  
     <center>
        <h1>Váš zisk vs. Optimální zisk</h1> 
        <canvas id="stats" ></canvas>
+       
     </center>
         </div>
         
@@ -48,9 +52,10 @@
             <h1>         </h1>
         <center>    
             <h1>Průměrný zisk investora <span data-bind="text:company"></span> je <span data-bind="text:average"></span> Kč na kolo. </h1>
-            <button data-bind="click: start">Hrát Znovu</button>
-            <button data-bind="click: name">Jiný Název</button>
-            <button data-bind="click: stats">Hodnocení</button>
+            <button class="btn waves-effect waves-light" type="submit" name="action" data-bind="click: start">Hrát Znovu</button>
+            <button class="btn waves-effect waves-light" type="submit" name="action" data-bind="click: name">Jiný Název</button>
+            <button class="btn waves-effect waves-light" type="submit" name="action" data-bind="click: stats">Hodnocení</button>
+            <a class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons" data-bind="click: name">NEW</i></a>
             <ol data-bind="foreach: results">
             <li>
                 <span data-bind="text: company"></span>
@@ -68,7 +73,7 @@
                 <h2> Investice: <span data-bind="text: invest"></span> Kč</h2>
                 <div> 
                     <span data-bind="text: gain"></span> Kč
-                    <button data-bind="click: $root.chooseGain">Investovat</button>
+                    <button class="btn waves-effect waves-light" type="submit" name="action" data-bind="click: $root.chooseGain">Investovat</button>
                 </div>
                 <div>
                     <div class="frac">
@@ -76,13 +81,13 @@
                         <span class="symbol">/</span>
                         <span class="bottom"><span data-bind="text: div"></span></span>
                     </div>
-                    <button data-bind="click: $root.chooseMulDiv">Investovat</button>
+                    <button class="btn waves-effect waves-light" type="submit" name="action" data-bind="click: $root.chooseMulDiv">Investovat</button>
                 </div>
                
             </center>
        </div>
         
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <!-- ${browser.bootstrap} -->
     </body>
 </html>
