@@ -38,20 +38,25 @@ public class DataModelTest {
         Data model = new Data();
     }
     @Test public void newResult(){
-        Result r1 = new Result("tul", 334444, 0);
-        Result r2 = new Result("tul1", 334443, 0);
-        Result r3 = new Result("tul2", 334442, 0);
-        Result r4 = new Result("tul3", 334441, 0);
-        Result r5 = new Result("tul4", 334440, 0);
+        Result r1 = new Result(-1, "tul", 334444, 0);
+        Result r2 = new Result(-1, "tul1", 334443, 0);
+        Result r3 = new Result(-1, "tul2", 334442, 0);
+        Result r4 = new Result(-1, "tul3", 334441, 0);
+        Result r5 = new Result(-1, "tul4", 334440, 0);
         List<Result> list = new ArrayList<>(Arrays.asList(r1, r2, r3, r4, r5));
-        Result newresult = new Result("jar", 334442, 0);
+        Result newresult = new Result(-1, "jar", 334442, 0);
         DataModel.ResultModel.insert(list, newresult, 5);
         
         assertEquals("tul", list.get(0).getCompany());
+        assertEquals(1, list.get(0).getPlace());
         assertEquals("tul1", list.get(1).getCompany());
+        assertEquals(2, list.get(1).getPlace());
         assertEquals("jar", list.get(2).getCompany());
+        assertEquals(3, list.get(2).getPlace());
         assertEquals("tul2", list.get(3).getCompany());
+        assertEquals(4, list.get(3).getPlace());
         assertEquals("tul3", list.get(4).getCompany());
+        assertEquals(5, list.get(4).getPlace());
         assertEquals(5, list.size());
     }
     @Test public void chooseExample(){

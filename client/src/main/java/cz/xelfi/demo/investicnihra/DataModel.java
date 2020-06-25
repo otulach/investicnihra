@@ -13,6 +13,7 @@ import java.util.List;
 import net.java.html.json.ModelOperation;
 import net.java.html.json.OnReceive;
 import net.java.html.charts.*;
+import net.java.html.json.OnPropertyChange;
 
 @Model(className = "Data", targetId="", instance = true, properties = {
     @Property(name = "money", type = int.class),
@@ -85,15 +86,21 @@ final class DataModel {
         }    
     }
     @Model(className = "Result", properties = {
+        @Property(name = "place", type = int.class),
         @Property(name = "company", type = String.class),
         @Property(name = "average", type = int.class),
         @Property(name = "when", type = long.class),
       
     })
     static class ResultModel {
+        @ComputedProperty
+        static String placeText(int place) {
+            return "" + place + ".";
+        }
+        
         static void insert(List<Result> topten, Result newresult, int max) {
             while (topten.size() < max) {
-                topten.add(new Result("neznámá", 0, 0L));
+                topten.add(new Result(-1, "neznámá", 0, 0L));
             }
             for (int i = 0; i < topten.size(); i++) {
                 Result r = topten.get(i);
@@ -105,6 +112,7 @@ final class DataModel {
             while (topten.size() > max) {
                 topten.remove(topten.size() - 1);
             }
+            assignPositions(topten);
         }
     }
     
@@ -124,6 +132,18 @@ final class DataModel {
              return 0;   
         }
         return  (money - 5000000) / round;
+    }
+    
+    @OnPropertyChange("results")
+    static void assignPositions(Data model) {
+        List<Result> topten = model.getResults();
+        assignPositions(topten);
+    }
+
+    static void assignPositions(List<Result> topten) {
+        for (int i = 0; i < topten.size(); i++) {
+            topten.get(i).setPlace(i + 1);
+        }
     }
     
     @Function
@@ -180,7 +200,7 @@ final class DataModel {
     void finish(Data ui) {
         ui.setContinueScreen(false);
         ui.setWelcomeScreen(false);
-        Result newresult = new Result(ui.getCompany(), ui.getAverage(), System.currentTimeMillis());
+        Result newresult = new Result(-1, ui.getCompany(), ui.getAverage(), System.currentTimeMillis());
         DataModel.ResultModel.insert(ui.getResults(), newresult, 5);
         ref.set(ui.getResults());
         ui.setFinalScreen(true);

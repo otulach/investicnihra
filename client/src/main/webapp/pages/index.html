@@ -15,12 +15,26 @@
         <div>Název Firmy:<input placeholder="min. 4 znaky" data-bind="textInput: company"/></div>
         <button class="btn waves-effect waves-light" type="submit" name="action" disabled="true" data-bind="click: start, enable: companyOK">Start
         </button>
-        <ol data-bind="foreach: results">
-            <li>
-                <span data-bind="text: company"></span>
-                s průměrem <span data-bind="text: average"></span>
-            </li>
-            </ol>
+        <p></p>
+        <p></p>
+        <p></p>
+        <form class="col s12">
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo center">Žebříček</a>
+                </div>
+            </nav>
+            <div class="row" data-bind="foreach: results">
+              <div class="input-field col s6">
+                  <input disabled data-bind="textInput: company" placeholder="Jméno" id="name" type="text" class="validate">
+                <label for="name" data-bind="text: placeText">#</label>
+              </div>
+              <div class="input-field col s6">
+                <input disabled data-bind="textInput: average" placeholder="Průměr" id="average" type="number" class="validate">
+                <label for="average">S průměrem</label>
+              </div>
+            </div>
+        </form>
     </center>
         </div>
        
