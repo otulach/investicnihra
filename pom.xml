@@ -12,15 +12,16 @@
     <modules>
         <module>client</module>
         <module>client-web</module>
-        <module>client-moe</module>
         <module>js</module>
-  </modules>
+    </modules>
     <properties>
-        <net.java.html.version>1.5.1</net.java.html.version>
-        <bck2brwsr.version>0.22</bck2brwsr.version>
+        <net.java.html.version>1.7.2</net.java.html.version>
+        <openjfx.version>11</openjfx.version>
+        <bck2brwsr.version>0.54</bck2brwsr.version>
         <bck2brwsr.obfuscationlevel>MINIMAL</bck2brwsr.obfuscationlevel>
         <junit.browser.version>1.0</junit.browser.version>
         <jersey.version>2.13</jersey.version>
+        <presenters.version>1.7.1</presenters.version>
         <enforcer.fail>false</enforcer.fail>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -32,10 +33,40 @@
                 <scope>test</scope>
                 <version>4.12</version>
             </dependency>
+            <dependency>
+                <groupId>com.dukescript.api</groupId>
+                <artifactId>junit-browser-runner</artifactId>
+                <version>${junit.browser.version}</version>
+                <scope>test</scope>
+                <type>jar</type>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.netbeans.html</groupId>
+                        <artifactId>net.java.html</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.netbeans.html</groupId>
+                        <artifactId>net.java.html.boot</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apidesign.bck2brwsr</groupId>
+                        <artifactId>emul</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>

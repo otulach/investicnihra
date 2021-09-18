@@ -21,6 +21,7 @@
     <project.mainclass>cz.xelfi.demo.investicnihra.Main</project.mainclass>
     <exec.java.bin>${java.home}/bin/java</exec.java.bin>
     <exec.debug.arg>-Ddebug=false</exec.debug.arg>
+    <springloaded.javaagent>-Djavaagent=false</springloaded.javaagent>
   </properties>
   <build>
       <plugins>
@@ -57,29 +58,16 @@
               </configuration>
           </plugin>
           <plugin>
-              <artifactId>maven-source-plugin</artifactId>
-              <version>2.2.1</version>
-              <executions>
-                  <execution>
-                      <id>attach-sources</id>
-                      <phase>post-integration-test</phase>
-                      <goals>
-                          <goal>jar-no-fork</goal>
-                      </goals>
-                  </execution>
-              </executions>
-          </plugin>
-          <plugin>
               <groupId>org.codehaus.mojo</groupId>
               <artifactId>exec-maven-plugin</artifactId>
               <version>1.2.1</version>
                 <configuration>
                    <executable>${exec.java.bin}</executable>
-                   <classpathScope>test</classpathScope>
+                   <classpathScope>runtime</classpathScope>
                    <arguments>
                        <argument>-classpath</argument>
                        <classpath/>
-                       <argument>-javaagent:${project.build.directory}/springloaded.jar</argument>
+                       <argument>${springloaded.javaagent}</argument>
                        <argument>-Xverify:none</argument>
                        <argument>-Dbrowser.rootdir=${basedir}/src/main/webapp/</argument>
                        <argument>-Dnetbeans.inspect.port=${netbeans.inspect.port}</argument>
@@ -95,7 +83,7 @@
               <executions>
                   <execution>
                       <id>copy</id>
-                      <phase>package</phase>
+                      <phase>process-classes</phase>
                       <goals>
                           <goal>copy</goal>
                       </goals>
@@ -173,6 +161,12 @@
         <version>${net.java.html.version}</version>
         <scope>provided</scope>
     </dependency>
+    <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-web</artifactId>
+        <version>${openjfx.version}</version>
+        <scope>test</scope>
+    </dependency>
 
     <dependency>
         <groupId>com.dukescript.api</groupId>
@@ -182,14 +176,12 @@
     <dependency>
         <groupId>com.dukescript.api</groupId>
         <artifactId>junit-browser-runner</artifactId>
-        <version>${junit.browser.version}</version>
         <scope>test</scope>
-        <type>jar</type>
     </dependency>
     <dependency>
         <groupId>com.dukescript.api</groupId>
         <artifactId>charts</artifactId>
-        <version>1.0</version>
+        <version>1.1</version>
         <type>jar</type>
     </dependency>
 
@@ -239,6 +231,12 @@
                   <version>${net.java.html.version}</version>
                   <scope>runtime</scope>
               </dependency>
+              <dependency>
+                  <groupId>org.openjfx</groupId>
+                  <artifactId>javafx-web</artifactId>
+                  <version>${openjfx.version}</version>
+                  <scope>runtime</scope>
+              </dependency>
           </dependencies>
           <build>
               <plugins>
@@ -277,6 +275,37 @@
                   </plugin>
               </plugins>
           </build>
+      </profile>
+      <profile>
+          <id>webkit-presenter</id>
+          <dependencies>
+              <dependency>
+                  <groupId>com.dukescript.presenters</groupId>
+                  <artifactId>webkit</artifactId>
+                  <version>${presenters.version}</version>
+                  <scope>runtime</scope>
+              </dependency>
+          </dependencies>
+      </profile>
+      <profile>
+          <id>browser-presenter</id>
+          <dependencies>
+              <dependency>
+                  <groupId>com.dukescript.presenters</groupId>
+                  <artifactId>browser</artifactId>
+                  <version>${presenters.version}</version>
+                  <scope>runtime</scope>
+              </dependency>
+          </dependencies>
+      </profile>
+      <profile>
+          <id>jdk-8</id>
+          <activation>
+              <jdk>1.8</jdk>
+          </activation>
+          <properties>
+              <springloaded.javaagent>-javaagent:${project.build.directory}/springloaded.jar</springloaded.javaagent>
+          </properties>
       </profile>
   </profiles>
 </project>
