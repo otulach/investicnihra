@@ -208,9 +208,7 @@
         <dependency>
             <groupId>com.dukescript.api</groupId>
             <artifactId>junit-browser-runner</artifactId>
-            <version>${junit.browser.version}</version>
             <scope>test</scope>
-            <type>jar</type>
         </dependency>
 
         <!-- run in JavaFX WebView -->
@@ -225,6 +223,12 @@
                     <artifactId>javafx</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-web</artifactId>
+            <version>${openjfx.version}</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- run in pluginless browser -->
@@ -242,6 +246,20 @@
             <scope>test</scope>
             <classifier>bck2brwsr</classifier>
             <type>jar</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.netbeans.html</groupId>
+                    <artifactId>net.java.html</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.netbeans.html</groupId>
+                    <artifactId>net.java.html.boot</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apidesign.bck2brwsr</groupId>
+                    <artifactId>emul</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
     <profiles>
@@ -277,12 +295,15 @@
                                 <artifactId>teavm-classlib</artifactId>
                                 <version>${teavm.version}</version>
                             </dependency>
-                            <!-- This module adds html4j support. It mainly includes JavaScriptBuilder support.
-                            Also there are some little patches to JCL emulation, that are required to pass TCK -->
                             <dependency>
                                 <groupId>org.teavm</groupId>
                                 <artifactId>teavm-html4j</artifactId>
                                 <version>${teavm.version}</version>
+                            </dependency>
+                            <dependency>
+                                <groupId>org.netbeans.html</groupId>
+                                <artifactId>net.java.html.boot</artifactId>
+                                <version>${net.java.html.version}</version>
                             </dependency>
                         </dependencies>
                         <executions>
