@@ -35,4 +35,32 @@
                 <activatedProfile>desktop</activatedProfile>
             </activatedProfiles>
         </action>
+        <action>
+            <actionName>run.single.main</actionName>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>exec:exec</goal>
+            </goals>
+            <properties>
+                <exec.mainClass>${packageClassName}</exec.mainClass>
+            </properties>
+            <activatedProfiles>
+                <activatedProfile>desktop</activatedProfile>
+            </activatedProfiles>
+        </action>
+        <action>
+            <actionName>debug.single.main</actionName>
+        <goals>
+            <goal>process-classes</goal>
+            <goal>exec:exec</goal>
+        </goals>
+        <properties>
+            <exec.mainClass>${packageClassName}</exec.mainClass>
+            <jpda.listen>true</jpda.listen>
+            <exec.debug.arg>-Xrunjdwp:transport=dt_socket,server=n,address=${jpda.address}</exec.debug.arg>
+        </properties>
+        <activatedProfiles>
+            <activatedProfile>desktop</activatedProfile>
+        </activatedProfiles>
+    </action>
 </actions>
