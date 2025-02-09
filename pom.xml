@@ -93,7 +93,7 @@
             <id>android</id>
             <activation>
                 <property>
-                    <name>!android.sdk.path</name>
+                    <name>android.sdk.path</name>
                 </property>
             </activation>
             <modules>
